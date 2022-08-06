@@ -1,3 +1,5 @@
+import 'package:demo_app/ui/meal_enquiry_form.dart';
+import 'package:demo_app/ui/sliver_practice.dart';
 import 'package:flutter/material.dart';
 import '/ui/recipe.dart';
 
@@ -9,6 +11,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   var _selectedItem = 0;
   var _title = ['Home', 'Category', 'Favorite', 'Setting'];
+  var _pages = [Recipe(), SliverPractice(), MealEnquiryForm(), MealEnquiryForm()];
 
   void _onItemTap(int index) {
     setState(() {
@@ -19,19 +22,22 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(_title[_selectedItem]),
-        actions: <Widget>[
-          IconButton(
-            onPressed: () => {},
-            icon: Icon(Icons.search),
-            tooltip: "Search",
-          )
-        ],
-      ),
-      body: (_selectedItem == 0) ? Recipe() : Center(
-        child: Text(_title[_selectedItem]),
-      ),
+      // appBar: AppBar(
+      //   title: Text(_title[_selectedItem]),
+      //   actions: <Widget>[
+      //     IconButton(
+      //       onPressed: () => {},
+      //       icon: Icon(Icons.search),
+      //       tooltip: "Search",
+      //     )
+      //   ],
+      // ),
+      body: _pages[_selectedItem],
+      // (_selectedItem == 0) ? Recipe() :
+      //  SliverPractice(),
+      //  Center(
+      //   child: Text(_title[_selectedItem]),
+      // ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Theme.of(context).primaryColor,
         unselectedItemColor: Colors.grey,

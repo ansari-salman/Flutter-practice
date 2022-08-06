@@ -42,10 +42,12 @@ class _OnBordingState extends State<OnBording> {
                   return Column(
                     children: [
                       SizedBox(height: 100),
-                      Image.asset(
-                        model[i].imgSrc,
-                        width: double.infinity,
-                        fit: BoxFit.cover,
+                      Expanded(
+                        child: Image.asset(
+                          model[i].imgSrc,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(30),
